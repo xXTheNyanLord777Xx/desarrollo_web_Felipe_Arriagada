@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Avisos</title>
+
+
+  <link rel="stylesheet" href="../css/listado.css">
+
+
+    <div class="table-responsive shadow-sm">
+      <table class="table table-striped table-hover align-middle mb-0">
+        <thead class="table-light">
+          <tr>
+            <th>Fecha Publicación</th>
+            <th>Fecha Entrega</th>
+            <th>Comuna</th>
+            <th>Sector</th>
+            <th>Cantidad tipo edad</th>
+            <th>Nombre Contacto</th>
+            <th>Total fotos</th>
+          </tr>
+        </thead>
+        <tbody id="tbody-avisos">
+          <tr data-id="1">
+            <td>01/01/2025</td>
+            <td>02/02/2025</td>
+            <td>Metropolitana</td>
+            <td>Fantaasilandia</td>
+            <td>1 gato 3 años</td>
+            <td>Bingus wakala123@gmail.com</td>
+            <td>
+              <img src="../bingus.jpg" alt="Foto 1" class="img-chica" onclick="verGrande(this)">
+            </td>
+          </tr>
+          <tr data-id="2">
+            <td>02/02/2025</td>
+            <td>03/03/2025</td>
+            <td>Maule</td>
+            <td>Molina</td>
+            <td>1 perro 7 años</td>
+            <td>Gmail jajakl333@gmail.com</td>
+            <td>
+              <img src="../gmail_dog.jpg" alt="Foto 2" class="img-chica" onclick="verGrande(this)" >
+            </td>
+          </tr>
+          <tr data-id="3">
+            <td>02/02/2025</td>
+            <td>10/02/2025</td>
+            <td>Metropolitana</td>
+            <td>beauchef</td>
+            <td>1 gato-buho 2 meses</td>
+            <td>meowl pabloperez@gmail.com</td>
+            <td>
+              <img src="../meowl.jpg" alt="Foto 3" class="img-chica"  onclick="verGrande(this)">
+            </td>
+          </tr>
+          <tr data-id="4">
+            <td>05/02/2025</td>
+            <td>12/02/2025</td>
+            <td>Metropolitana</td>
+            <td>blanco encalada</td>
+            <td>1 gato 4 años</td>
+            <td>rigby fandegatos3@gmail.com</td>
+            <td>
+              <img src="../rigby.jpg" alt="Foto 4" class="img-chica" onclick="verGrande(this)">
+            </td>
+          </tr>
+          <tr data-id="5">
+            <td>11/02/2025</td>
+            <td>13/02/2025</td>
+            <td>Metropolitana</td>
+            <td>en la sonia</td>
+            <td>1 perro 15 años</td>
+            <td>doge lol34maria@gmail.com</td>
+            <td>
+              <img src="../Doge.jpg" alt="Foto 5" class="img-chica" onclick="verGrande(this)">
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" id="btn-volver">Volver</button>
+      
+    </div>
+
+    <script src="../js/listado.js"></script>
+
+
+
+</body>
+</html>
