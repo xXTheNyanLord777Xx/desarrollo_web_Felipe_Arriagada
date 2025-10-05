@@ -1,0 +1,10 @@
+{
+  "get_regiones": "SELECT id, nombre FROM region ORDER BY nombre ASC",
+  "get_comunas": "SELECT id, nombre, region_id FROM comuna ORDER BY nombre ASC",
+  "get_comunas_by_region": "SELECT id, nombre FROM comuna WHERE region_id = %s ORDER BY nombre ASC",
+  "get_aviso_by_id": "SELECT a.*, c.nombre AS comuna_nombre FROM aviso_adopcion a JOIN comuna c ON c.id = a.comuna_id WHERE a.id = %s",
+  "get_ultimos_avisos": "SELECT a.*, c.nombre AS comuna_nombre FROM aviso_adopcion a JOIN comuna c ON c.id = a.comuna_id ORDER BY a.fecha_ingreso DESC LIMIT %s",
+  "create_aviso": "INSERT INTO aviso_adopcion (fecha_ingreso, comuna_id, sector, nombre, email, celular, tipo, cantidad, edad, unidad_medida, fecha_entrega, descripcion) VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",
+  "create_foto": "INSERT INTO foto (ruta_archivo, nombre_archivo, actividad_id) VALUES (%s,%s,%s)",
+  "create_contacto": "INSERT INTO contactar_por (nombre, identificador, actividad_id) VALUES (%s,%s,%s)"
+}
