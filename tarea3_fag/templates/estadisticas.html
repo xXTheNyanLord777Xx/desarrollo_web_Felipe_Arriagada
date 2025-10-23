@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/estadisticas.css">
+    <title>Tarea 01</title>
+</head>
+
+    
+<div>
+    <h3>Estadisticas</h3>
+</div>
+
+        
+{% block content %}    
+<div class="stats-container">
+    <figure class="highcharts-figure">
+        <div id="grafico-barras"></div>
+        <p class="highcharts-description">
+        </p>
+    </figure>
+</div>
+
+<div class="stats-container">
+    <figure class="highcharts-figure">
+        <div id="grafico-torta"></div>
+        <p class="highcharts-description">
+        </p>
+    </figure>
+</div>
+
+<div class="stats-container">
+    <figure class="highcharts-figure">
+        <div id="grafico-columna"></div>
+        <p class="highcharts-description">
+        </p>
+    </figure>
+</div>
+{% endblock content %}
+
+
+{% block javascript %}
+    <a class="btn" href="{{ url_for('portada') }}">Volver</a>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="../static/js/estadisticas.js"></script>
+{% endblock %}
+</html>
