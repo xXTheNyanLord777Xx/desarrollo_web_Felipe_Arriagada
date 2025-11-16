@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head></head>
+<body>
+<!-- Definimos un fragmento llamado 'navbar' -->
+<nav th:fragment="navbar">
+    <a th:href="@{/}">Inicio</a> |
+    <a th:href="@{/stats}">Estadísticas</a>
+</nav>
+</body>
+</html>
