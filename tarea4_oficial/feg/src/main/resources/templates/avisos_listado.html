@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8" />
+        <title>Listado de avisos</title>
+
+        </head>
+
+        <body>
+        <!-- css -->
+        <link rel="stylesheet" th:href="@{/css/listado.css}" />
+        <!-- Navbar no hace nada por el momento pero es una alusion a que se puede conectar con proyecto anterior-->
+        <div th:replace="~{fragments/nav :: navbar}"></div>
+        <section class="main-container">
+
+        <!-- Listados con evaluar -->
+         <h1>Listado con evaluar</h1>
+         <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Fecha Publicacion</th>
+                    <th>Sector</th>
+                    <th>Cantidad</th>
+                    <th>Tipo</th>
+                    <th>Edad</th>
+                    <th>Comuna</th>
+                    <th>Nota</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="aviso : ${avisos}">
+                    <td th:text="${aviso.id}"></td>
+                    <td th:text="${#temporals.format(aviso.fechaIngreso, 'yyyy-MM-dd HH:mm')}"></td>
+                    <td th:text="${aviso.sector} != null ? ${aviso.sector} : '-' ">-</td>
+                    <td th:text="${aviso.cantidad}"></td>
+                    <td th:text="${aviso.tipo}"></td>
+                    <td th:text="${aviso.edad}"></td>
+                    <td th:text="${aviso.comunaNombre}"></td>
+                    <td class="col-promedio"
+                        th:text="${aviso.promedioNota} != null ? ${#numbers.formatDecimal(aviso.promedioNota, 1, 1)} : '-'">
+                    </td>
+                    <td>
+                    <button class="btn-evaluar"th:attr="data-id=${aviso.id},data-pag=${pagActual}">Evaluar</button>
+                    </td>
+                </tr>
+            </tbody>
+         </table>
+        </body>
+        <form id="eval-form" method="post">
+            <input type="hidden" name="nota" id="nota-input">
+        </form>
+
+        <script src="/js/aviso_listado.js"></script>
+        
+</html>
