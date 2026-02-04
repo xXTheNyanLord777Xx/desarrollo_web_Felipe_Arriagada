@@ -1,0 +1,5 @@
+/* esto es para tener bordes sin que sean de doble linea*/
+table, th, td { 
+    border: 1px solid black; 
+    border-collapse: collapse; 
+}

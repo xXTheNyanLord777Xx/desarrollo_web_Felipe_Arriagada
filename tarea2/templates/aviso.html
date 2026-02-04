@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <title>Agregar Aviso</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/aviso.css') }}">
+</head>
+
+<body>
+  <div class="container">
+    <div id="val-box" hidden>
+      <p id="val-msg"></p>
+      <ul id="val-list"> </ul>
+    </div>
+
+
+    <form name="formAviso" id="form-aviso" action="{{ url_for('add_adoption') }}" method="post" enctype="multipart/form-data">
+
+      <label for="nombre">Nombre</label>
+      <input type="text" name="nombre" id="nombre"><br>
+
+
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" maxlength="100" placeholder="tucorreo@dominio.com" required><br>
+
+
+      <label for="phone">Teléfono</label>
+      <input type="text" name="phone" id="phone" placeholder="+569.12345678(opcional)"><br>
+
+
+      <label for="contactar">Contactar</label>
+      <select name="contactar" id="contactar" required>
+      <option value="">Seleccione una opcion</option>
+      <option value="tiktok">Tiktok</option>
+      <option value="whatsapp">Whatsapp</option>
+      <option value="telegram">Telegram</option>
+      <option value="x">X</option>
+      <option value="otra">otra</option>
+      </select><br>
+        <div id="bloque-texto" style="display:none; margin-top:10px;">
+        <label for="informar-id">Explica tus razones:</label><br>
+        <textarea name="informar-id" id="informar-id" rows="5" cols="50"></textarea>
+        </div>
+
+
+        <label for="select-region">Región</label>
+        <select name="select-region" id="select-region" required>
+        <option value="">Seleccione una región</option>
+        {% for r in regiones%}
+        <option value="{{ r.id }}">{{ r.nombre }}</option>
+        {% endfor %}
+        </select><br>
+
+        <label for="select-comuna">Comuna</label>
+        <select id="select-comuna" name="select-comuna" required>
+        <option value="">Seleccione una comuna</option>
+        {% for c in comunas %}
+        <option value="{{ c.id }}">{{ c.nombre }}</option>
+        {% endfor %}
+        </select>
+
+        <label for="sector">Sector</label>
+        <input type="text" name="sector" id="sector" maxlength="100" placeholder="(opcional)">
+
+
+      <label for="tipo">Tipo de mascota</label>
+      <select name="tipo" id="tipo" required>
+        <option value="">Seleccione tipo</option>
+        <option value="gato">Gato</option>
+        <option value="perro">Perro</option>
+      </select><br>
+
+
+      <label for="cantidad">Cantidad</label>
+      <input type="number" name="cantidad" id="cantidad" min="1" step="1" placeholder="1" required><br>
+
+
+      <label for="edad">Edad</label>
+      <input type="number" name="edad" id="edad" min="1" step="1" placeholder="2" required><br>
+
+
+      <label for="unidad_medida">Unidad de edad</label>
+      <select name="unidad" id="unidad_medida" required>
+        <option value="">Seleccione unidad</option>
+        <option value="meses">Meses</option>
+        <option value="años">Años</option>
+      </select><br>
+
+
+      <label for="fecha_entrega">Fecha disponible para entrega</label>
+      <input type="datetime-local" name="fecha-entrega" id="fecha_entrega" required><br>
+
+
+      <label for="descripcion">Descripción (opcional)</label>
+      <textarea name="descripcion" id="descripcion" rows="4" cols="50" placeholder="Comentarios..."></textarea><br>
+
+
+      <label for="fotos">Fotos</label>
+      <input type="file" name="files" id="fotos" multiple accept="image/*" required><br>
+
+
+      <button id="agregar-btn" type="button">Agregar aviso</button>
+      <a class="btn" href="{{ url_for('portada') }}">Volver</a>
+      
+    </form>
+  </div>
+
+
+  <script src="{{ url_for('static', filename='js/region_comuna.js') }}"></script><!--lo cargamosa antes, asi podemos manipularlo en archivoREAL--> 
+  <script src="{{ url_for('static', filename='js/avisoREAL.js') }}"></script>
+
+
+</body>
+</html>

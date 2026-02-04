@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <title>Tarea 01</title>
+</head>
+<body>
+    
+<div>
+    <h3>Bienvenid@ al centro de adopcion !!!</h3>
+      <a class="btn" href="{{ url_for('add_adoption') }}">Agregar aviso de adopción</a>
+      <a class="btn" href="{{ url_for('adoptions_list') }}">Ver listado adopción</a>
+      <a class="btn" href="{{ url_for('stats') }}">Estadísticas</a>
+
+
+<table>
+    <thead>
+      <tr>
+        <th>Fecha Publicación</th>
+        <th>Comuna</th>
+        <th>Sector</th>
+        <th>Cantidad - Tipo - Edad</th>
+        <th>Foto</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for aviso in ultimos5 %}
+      <tr>
+        <td>{{ aviso.fecha_ingreso.strftime("%d/%m/%Y") }}</td>
+        <td>{{ aviso.comuna_nombre or aviso.comuna_id }}</td>
+        <td>{{ aviso.sector or '—' }}</td>
+        <td>
+          {{ aviso.cantidad }} {{ aviso.tipo }}
+          {% if aviso.edad %}
+            {{ aviso.edad }} {{ 'años' if aviso.unidad_medida == 'a' else 'meses' }}
+          {% endif %}
+        </td>
+        <td>
+          <img src="{{ url_for('static', filename='uploads/' ~ aviso.nombre_archivo) }}" alt="Foto aviso {{ aviso.id }}" width="120">
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+        
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+ </body>
+</html>
